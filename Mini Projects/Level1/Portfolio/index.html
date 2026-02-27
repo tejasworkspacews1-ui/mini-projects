@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejas Kamble - Personal Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .portfolio-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #00d4ff;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header .title {
+            font-size: 1.2rem;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        .header .tagline {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #00d4ff;
+            transform: translateY(-5px);
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #00d4ff;
+            display: inline-block;
+        }
+
+        /* About Section */
+        .about-text {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .education-item h3 {
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .education-item .degree {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item .year {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .project-card .tech {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        /* Resume Button */
+        .resume-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: #667eea;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-image">
+                <img src="" alt="example">
+            </div>
+            <h1>Tejas Kamble</h1>
+            <p class="title">B Tech Engineering Student | First Year</p>
+            <p class="tagline">Passionate about web development and creating innovative solutions. Always eager to learn new technologies and work on exciting projects.</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/tejas-kamble-5342443b1?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-link" rel="noopener">in</a>
+                <a href="https://github.com/tejasworkspacews1-ui" target="_blank" class="social-link" rel="noopener">GH</a>
+                <a href="https://www.instagram.com/tejasworkspace_u1?igsh=MXRzcG55N3psbWxzbw==" target="_blank" class="social-link" rel="noopener">IG</a>
+                <a href="mailto:tejasworkspacews1@gmail.com" class="social-link" rel="noopener">✉</a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- About Section -->
+            <div class="section">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    Hello! I'm Tejas Kamble, a first-year B Tech Engineering student with a keen interest in web development and technology. I'm currently building my skills in HTML, CSS, JavaScript, and exploring modern frameworks like React. I love turning ideas into reality through code and am always looking for new challenges to learn and grow. My goal is to become a full-stack developer and contribute to meaningful projects that make a difference.
+                </p>
+            </div>
+
+            <!-- Education Section -->
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <h3>B Tech in Engineering</h3>
+                    <p class="degree">Engineering College</p>
+                    <p class="year">First Year | 2024 - Present</p>
+                </div>
+                <div class="education-item">
+                    <h3>High School Education</h3>
+                    <p class="year">Completed with distinction</p>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-container">
+                    <span class="skill">HTML5</span>
+                    <span class="skill">CSS3</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">React Basics</span>
+                    <span class="skill">Git</span>
+                    <span class="skill">Node.js Basics</span>
+                    <span class="skill">MongoDB Basics</span>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="section">
+                <h2 class="section-title">Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A responsive portfolio website showcasing my skills, projects, and contact information.</p>
+                        <p class="tech">HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Temperature Converter</h3>
+                        <p>A web tool to convert temperatures between Celsius, Fahrenheit, and Kelvin.</p>
+                        <p class="tech">HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Calculator App</h3>
+                        <p>A functional calculator with basic and scientific operations.</p>
+                        <p class="tech">HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>To-Do Application</h3>
+                        <p>A task management app to add, complete, and delete tasks.</p>
+                        <p class="tech">HTML, CSS, JavaScript</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resume Section -->
+            <div class="section">
+                <h2 class="section-title">Resume</h2>
+                <a href="#" class="resume-btn">Download Resume</a>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="section">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="icon">📧</div>
+                        <p><a href="mailto:tejasworkspacews1@gmail.com" rel="noopener">Email</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">💼</div>
+                        <p><a href="https://www.linkedin.com/in/tejas-kamble-5342443b1?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">LinkedIn</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">🌐</div>
+                        <p><a href="https://tejas-personal-portfolio-dev.vercel.app/" target="_blank" rel="noopener">Website</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">💻</div>
+                        <p><a href="https://github.com/tejasworkspacews1-ui" target="_blank" rel="noopener">GitHub</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Tejas Kamble. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
